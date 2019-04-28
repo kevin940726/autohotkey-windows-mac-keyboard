@@ -30,7 +30,7 @@ F11::SendInput {Volume_Down}
 F12::SendInput {Volume_Up}
 
 ; swap left command/windows key with left alt
-;LWin::LAlt
+LWin::LAlt
 ;LAlt::LWin ; add a semicolon in front of this line if you want to disable the windows key
 
 ; Eject Key
@@ -52,37 +52,43 @@ F19::Run https://facebook.com
 ; --------------------------------------------------------------
 
 ; Make Ctrl + S work with cmd (windows) key
-#s::^s
+#s::Send ^s
 
 ; Selecting
-#a::^a
+#a::Send ^a
 
 ; Copying
-#c::^c
+#c::Send ^c
 
 ; Pasting
-#v::^v
+#v::Send ^v
 
 ; Cutting
-#x::^x
+#x::Send ^x
 
 ; Opening
-#o::^o
+#o::Send ^o
 
 ; Finding
 #f::Send ^f
 
 ; Undo
-#z::^z
+#z::Send ^z
 
 ; Redo
-#y::^y
+#y::Send ^y
+
+; Redo
+#+z::Send ^y
 
 ; New tab
-#t::^t
+#t::Send ^t
+
+; New window
+#n::Send ^n
 
 ; close tab
-#w::^w
+#w::Send ^w
 
 ; Close windows (cmd + q to Alt + F4)
 #q::Send !{F4}
@@ -92,6 +98,22 @@ Lwin & Tab::AltTab
 
 ; minimize windows
 #m::WinMinimize,a
+
+; Command + Arrow keys
+#Left:: Send {Home} ; Go to the beginning of the line
+#Right:: Send {End} ; Go to the end of the line
+#Up:: Send ^{Home} ; Go to the beginning of the document
+#Down:: Send ^{End} ; Go to the end of the document
+
+; Alt + arrow keys
+!Left:: Send ^{Left} ; Go to previous word
+!Right:: Send ^{Right} ; Go to next word
+
+; Make the arrow keys works with Shift
+#+Left:: Send +{Home}
+#+Right:: Send +{End}
+!+Left:: Send ^+{Left}
+!+Right:: Send ^+{Right}
 
 
 ; --------------------------------------------------------------
@@ -173,4 +195,3 @@ Lwin & Tab::AltTab
 #!u::Send ^u
 
 #IfWinActive
-
