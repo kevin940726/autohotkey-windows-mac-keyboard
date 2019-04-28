@@ -115,6 +115,10 @@ Lwin & Tab::AltTab
 !+Left:: Send ^+{Left}
 !+Right:: Send ^+{Right}
 
+; Make the arrow keys works with Backspace
+#Backspace:: Send +{Home}{Backspace}
+!Backspace:: Send ^{Backspace}
+
 
 ; --------------------------------------------------------------
 ; OS X keyboard mappings for special chars
